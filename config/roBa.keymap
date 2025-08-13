@@ -128,7 +128,7 @@
 &trans          &trans                  &trans          &trans                   &trans   &trans      &trans  &trans                          &trans
             >;
 
-            sensor-bindings = <&encoder_scroll_lr)>;
+            sensor-bindings = <&encoder_scroll_lr>;
         };
 
         MOUSE {
