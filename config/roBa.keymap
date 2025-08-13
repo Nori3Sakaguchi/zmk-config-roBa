@@ -26,6 +26,22 @@
 };
 
 / {
+    behaviors {
+        // 上下スクロール用のエンコーダビヘイビア
+        encoder_scroll: encoder_scroll {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+        };
+
+        // 左右スクロール用のエンコーダビヘイビア
+        encoder_scroll_lr: encoder_scroll_lr {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -86,7 +102,7 @@
 &kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 INT_HENKAN  &lt 2 SPACE  &lt_to_layer_0 3 INT_MUHENKAN      &kp BACKSPACE  &lt 1 ENTER                             &kp DEL
             >;
 
-            sensor-bindings = <&msc SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&encoder_scroll>;
         };
 
         FUNCTION {
@@ -115,7 +131,7 @@
 &trans          &trans                  &trans          &trans                   &trans   &trans      &trans  &trans                          &trans
             >;
 
-            sensor-bindings = <&msc SCRL_LEFT SCRL_RIGHT)>;
+            sensor-bindings = <&encoder_scroll_lr)>;
         };
 
         MOUSE {
